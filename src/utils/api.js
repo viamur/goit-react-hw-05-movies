@@ -9,62 +9,40 @@ class apiFetch {
 
   /* Запрос на ТРЕНДЫ */
   trend = async page => {
-    try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${page}`
-      );
-      return respons.data.results;
-    } catch (error) {
-      console.log(error.message);
-    }
+    const respons = await axios.get(
+      `${this.#BASE_URL}${this.#TRAND}?api_key=${this.#API_KEY}&page=${page}`
+    );
+    return respons.data.results;
   };
 
   /* Запрос ПОИСК ИНПУТ */
   search = async (query, page) => {
-    try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#SEARCH}?api_key=${this.#API_KEY}&query=${query}&page=${page}`
-      );
-      return respons.data;
-    } catch (error) {
-      console.log(error.message);
-    }
+    const respons = await axios.get(
+      `${this.#BASE_URL}${this.#SEARCH}?api_key=${this.#API_KEY}&query=${query}&page=${page}`
+    );
+    return respons.data;
   };
 
   /* Запрос id */
   id = async id => {
-    try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#ALL}/${id}?api_key=${this.#API_KEY}`
-      );
-      return respons.data;
-    } catch (error) {
-      console.log(error.message);
-    }
+    const respons = await axios.get(`${this.#BASE_URL}${this.#ALL}/${id}?api_key=${this.#API_KEY}`);
+    return respons.data;
   };
 
   /* Запрос Cast */
   cast = async id => {
-    try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#ALL}/${id}/credits?api_key=${this.#API_KEY}`
-      );
-      return respons.data;
-    } catch (error) {
-      console.log(error.message);
-    }
+    const respons = await axios.get(
+      `${this.#BASE_URL}${this.#ALL}/${id}/credits?api_key=${this.#API_KEY}`
+    );
+    return respons.data;
   };
 
   /* Запрос Reviews */
   reviews = async id => {
-    try {
-      const respons = await axios.get(
-        `${this.#BASE_URL}${this.#ALL}/${id}/reviews?api_key=${this.#API_KEY}`
-      );
-      return respons.data;
-    } catch (error) {
-      console.log(error.message);
-    }
+    const respons = await axios.get(
+      `${this.#BASE_URL}${this.#ALL}/${id}/reviews?api_key=${this.#API_KEY}`
+    );
+    return respons.data;
   };
 }
 
