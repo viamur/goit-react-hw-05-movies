@@ -3,12 +3,11 @@ import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom'
 import api from '../../utils/api';
 
 const MovieDetails = () => {
+  const [data, setData] = useState({});
   const { movieId } = useParams();
   const location = useLocation();
   const backLink = location.state?.from ?? '/home';
-  const [data, setData] = useState({});
 
-  console.log(location);
   useEffect(() => {
     const dataConversion = obj => {
       const genres = obj.genres.map(genre => genre.name).join(', ');
@@ -25,6 +24,7 @@ const MovieDetails = () => {
       setData(newData);
     };
     api.id(movieId).then(response => dataConversion(response));
+    // eslint-disable-next-line
   }, []);
 
   return (
