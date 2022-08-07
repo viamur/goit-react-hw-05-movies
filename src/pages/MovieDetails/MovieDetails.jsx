@@ -4,16 +4,19 @@ import Section from '../../components/Section/Section';
 import status from '../../utils/status';
 import api from '../../utils/api';
 import s from './MovieDetails.module.css';
+import { useRef } from 'react';
 
 const MovieDetails = () => {
   const [data, setData] = useState({});
   const [statusPage, setStatusPage] = useState(status.START);
 
   const { movieId } = useParams();
+  const locRef = useRef(null);
   const location = useLocation();
-  const backLink = location.state?.from ?? '/home';
+  console.log(location);
 
   useEffect(() => {
+    locRef.current = location.state?.from ?? '/';
     const dataConversion = obj => {
       const genres = obj.genres.map(genre => genre.name).join(', ');
       const year = obj['release_date'].split('-')[0];
@@ -49,7 +52,7 @@ const MovieDetails = () => {
     <Section>
       {statusPage === status.FINISH && (
         <>
-          <Link to={backLink} className={s.btnBack}>
+          <Link to={locRef.current} className={s.btnBack}>
             {`<--Go to back`}
           </Link>
           <div className={s.wrap}>
