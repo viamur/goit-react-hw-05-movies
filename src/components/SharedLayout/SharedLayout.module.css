@@ -2,10 +2,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
+  /* ХВАТИТ СПИСЫВАТЬ У МЕНЯ ДЗ */
   background-color: lightcoral;
   height: 70px;
 }
+
 .nav {
   display: flex;
 }
