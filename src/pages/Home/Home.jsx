@@ -1,15 +1,9 @@
 import Section from '../../components/Section/Section';
 import { useEffect, useState } from 'react';
+import status from '../../utils/status';
 import api from 'utils/api';
 import List from '../../components/List/List';
 import s from './Home.module.css';
-
-const status = {
-  LOADING: 'loading',
-  START: 'start',
-  FINISH: 'finish',
-  EROR: 'eror',
-};
 
 const Home = () => {
   const [data, setData] = useState([]);

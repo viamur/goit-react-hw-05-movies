@@ -1,17 +1,12 @@
-import Section from '../../components/Section/Section';
 import { useState, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import Section from '../../components/Section/Section';
+import status from '../../utils/status';
 import api from 'utils/api';
 import FormSearch from '../../components/FormSerch/FormSearch';
 import List from '../../components/List/List';
 import s from './Movies.module.css';
 
-const status = {
-  LOADING: 'loading',
-  START: 'start',
-  FINISH: 'finish',
-  EROR: 'eror',
-};
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [data, setData] = useState([]);
