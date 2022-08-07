@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams, Link, useLocation } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import Section from '../../components/Section/Section';
 import status from '../../utils/status';
 import api from 'utils/api';

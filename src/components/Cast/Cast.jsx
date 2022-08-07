@@ -41,6 +41,7 @@ const Cast = () => {
             ) : (
               <img
                 src="https://dummyimage.com/200x300/faebd7/000000.jpg&text=photo+not+found"
+                alt="notPhoto"
                 width="200px"
                 height="300px"
               />

@@ -20,9 +20,11 @@ const Home = () => {
       } catch (error) {
         console.log(error);
         setStatusPage(status.EROR);
+        setPage(1);
       }
     };
     fetch();
+    // eslint-disable-next-line
   }, []);
 
   return (
