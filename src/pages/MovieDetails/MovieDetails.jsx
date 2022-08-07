@@ -1,9 +1,20 @@
+import Section from '../../components/Section/Section';
 import { useEffect, useState } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import api from '../../utils/api';
+import s from './MovieDetails.module.css';
+
+const status = {
+  LOADING: 'loading',
+  START: 'start',
+  FINISH: 'finish',
+  EROR: 'eror',
+};
 
 const MovieDetails = () => {
   const [data, setData] = useState({});
+  const [statusPage, setStatusPage] = useState(status.START);
+
   const { movieId } = useParams();
   const location = useLocation();
   const backLink = location.state?.from ?? '/home';
@@ -22,40 +33,62 @@ const MovieDetails = () => {
         overview: obj.overview,
       };
       setData(newData);
+      setStatusPage(status.FINISH);
     };
-    api.id(movieId).then(response => dataConversion(response));
+
+    const fetch = async () => {
+      setStatusPage(status.LOADING);
+      try {
+        const response = await api.id(movieId);
+        dataConversion(response);
+      } catch (error) {
+        console.log(error);
+        setStatusPage(status.EROR);
+      }
+    };
+    fetch();
+
     // eslint-disable-next-line
   }, []);
 
   return (
-    <>
-      <Link to={backLink}>Go to back</Link>
-      <div className="wrap" style={{ display: 'flex' }}>
-        <img src={data.img} alt={data.title} height="300" width="200" />
-        <div className="info">
-          <h2>
-            {data.title}({data.year})
+    <Section>
+      <Link to={backLink} className={s.btnBack}>
+        {`<--Go to back`}
+      </Link>
+      <div className={s.wrap}>
+        <img src={data.img} alt={data.title} height="300" width="200" className={s.img} />
+        <div className={s.info}>
+          <h2 className={s.title}>
+            {data.title}
+            <span className={s.year}>({data.year})</span>
           </h2>
-          <p>User Score {data.score}%</p>
-          <h3>Overview</h3>
+          <p className={s.score}>
+            User Score: <b>{data.score}%</b>{' '}
+          </p>
+          <h3 className={s.subtitle}>Overview</h3>
           <p>{data.overview}</p>
-          <h4>Genres</h4>
+          <h3 className={s.subtitle}>Genres</h3>
           <p>{data.genres}</p>
         </div>
       </div>
       <div>
-        <h3>Additional information</h3>
-        <ul>
-          <li>
-            <NavLink to={'cast'}>Cast</NavLink>
+        <h3 className={s.subtitleAdd}>Additional information</h3>
+        <ul className={s.list}>
+          <li className={s.item}>
+            <NavLink to={'cast'} className="linkAddIfo">
+              Cast
+            </NavLink>
           </li>
-          <li>
-            <NavLink to={'reviews'}>Reviews</NavLink>
+          <li className={s.item}>
+            <NavLink to={'reviews'} className="linkAddIfo">
+              Reviews
+            </NavLink>
           </li>
         </ul>
       </div>
       <Outlet />
-    </>
+    </Section>
   );
 };
 

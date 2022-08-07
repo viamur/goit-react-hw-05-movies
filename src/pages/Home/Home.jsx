@@ -1,31 +1,43 @@
+import Section from '../../components/Section/Section';
 import { useEffect, useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
 import api from 'utils/api';
-// import api from '../../utils/api';
+import List from '../../components/List/List';
+import s from './Home.module.css';
+
+const status = {
+  LOADING: 'loading',
+  START: 'start',
+  FINISH: 'finish',
+  EROR: 'eror',
+};
 
 const Home = () => {
-  const location = useLocation();
   const [data, setData] = useState([]);
+  const [page, setPage] = useState(1);
+  const [statusPage, setStatusPage] = useState(status.START);
 
   useEffect(() => {
-    api
-      .trend(1)
-      .then(response => setData(response))
-      .catch(error => console.log(error));
+    const fetch = async () => {
+      setStatusPage(status.LOADING);
+      try {
+        const response = await api.trend(page);
+        setData(response);
+        setStatusPage(status.FINISH);
+      } catch (error) {
+        console.log(error);
+        setStatusPage(status.EROR);
+      }
+    };
+    fetch();
   }, []);
+
   return (
-    <section>
-      <h1>Trending today</h1>
-      <ul>
-        {data.map(el => (
-          <li key={el.id}>
-            <Link to={`movies/${el.id}`} state={{ from: location }}>
-              {el.title}
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+    <Section>
+      <h1 className={s.title}>Trending today</h1>
+      {statusPage === status.FINISH && <List data={data} isHome={true} />}
+      {statusPage === status.LOADING && <p>Загрузка</p>} {/* Скелетон надо сделать */}
+      {statusPage === status.EROR && <p>Erorr</p>}
+    </Section>
   );
 };
 

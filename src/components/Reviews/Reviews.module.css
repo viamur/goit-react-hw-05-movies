@@ -1,0 +1,17 @@
+.notInfo {
+  letter-spacing: 1px;
+}
+.list {
+}
+.item {
+  border-bottom: 2px solid lightcoral;
+  margin-bottom: 30px;
+}
+.author {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.content {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
