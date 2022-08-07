@@ -34,7 +34,7 @@ class apiFetch {
     const respons = await axios.get(
       `${this.#BASE_URL}${this.#ALL}/${id}/credits?api_key=${this.#API_KEY}`
     );
-    return respons.data;
+    return respons.data.cast;
   };
 
   /* Запрос Reviews */
@@ -42,7 +42,7 @@ class apiFetch {
     const respons = await axios.get(
       `${this.#BASE_URL}${this.#ALL}/${id}/reviews?api_key=${this.#API_KEY}`
     );
-    return respons.data;
+    return respons.data.results;
   };
 }
 

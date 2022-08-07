@@ -15,7 +15,7 @@ const Home = () => {
   }, []);
   return (
     <section>
-      <h1>Home</h1>
+      <h1>Trending today</h1>
       <ul>
         {data.map(el => (
           <li key={el.id}>
