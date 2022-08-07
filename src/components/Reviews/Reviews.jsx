@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import ReviewsSkeleton from './ReviewsSkeleton';
 import status from '../../utils/status';
 import api from 'utils/api';
 import s from './Reviews.module.css';
@@ -44,10 +45,10 @@ const Reviews = () => {
     }
   }
   if (statusPage === status.LOADING) {
-    return <p>Loading...</p>;
+    return <ReviewsSkeleton />;
   }
 
-  if (statusPage === status.LOADING) {
+  if (statusPage === status.EROR) {
     return <p>Eror...</p>;
   }
 };

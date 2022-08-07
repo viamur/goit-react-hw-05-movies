@@ -1,9 +1,9 @@
-import { useState } from 'react';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import status from '../../utils/status';
 import api from 'utils/api';
 import s from './Cast.module.css';
+import CastSkeleton from './CastSkeleton';
 
 const Cast = () => {
   const [data, setData] = useState([]);
@@ -33,7 +33,7 @@ const Cast = () => {
           <li key={el.id} className={s.item}>
             {el['profile_path'] ? (
               <img
-                src={`https://image.tmdb.org/t/p/w500/${el['profile_path']}`}
+                src={`https://image.tmdb.org/t/p/w500${el['profile_path']}`}
                 alt={el.name}
                 width="200px"
                 height="300px"
@@ -61,7 +61,7 @@ const Cast = () => {
   }
 
   if (statusPage === status.LOADING) {
-    return <p>Loading...</p>;
+    return <CastSkeleton />;
   }
 
   if (statusPage === status.LOADING) {

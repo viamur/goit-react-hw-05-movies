@@ -1,5 +1,6 @@
 import Section from '../../components/Section/Section';
 import { useEffect, useState } from 'react';
+import ListSkeleton from '../../components/List/ListSkeleton';
 import status from '../../utils/status';
 import api from 'utils/api';
 import List from '../../components/List/List';
@@ -31,7 +32,7 @@ const Home = () => {
     <Section>
       <h1 className={s.title}>Trending today</h1>
       {statusPage === status.FINISH && <List data={data} isHome={true} />}
-      {statusPage === status.LOADING && <p>Загрузка</p>} {/* Скелетон надо сделать */}
+      {statusPage === status.LOADING && <ListSkeleton />} {/* Скелетон надо сделать */}
       {statusPage === status.EROR && <p>Erorr</p>}
     </Section>
   );

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import Section from '../../components/Section/Section';
+import ListSkeleton from '../../components/List/ListSkeleton';
 import status from '../../utils/status';
 import api from 'utils/api';
 import FormSearch from '../../components/FormSerch/FormSearch';
@@ -40,15 +41,16 @@ const Movies = () => {
         setData={setData}
         setSearchParams={setSearchParams}
       />
-      {statusPage === status.FINISH && data.length !== 0 && (
+      {statusPage === status.FINISH && data.length !== 0 && queryURL !== '' && (
         <p className={s.title}>Search result: {queryURL}</p>
       )}
       {statusPage === status.FINISH && data.length === 0 && (
         <p className={s.title}>Your request was not found: {queryURL}</p>
       )}
-      {statusPage === status.FINISH && data.length !== 0 && <List data={data} isHome={false} />}
-      {statusPage === status.LOADING && <p className={s.title}>Загрузка</p>}{' '}
-      {/* Скелетон надо сделать */}
+      {statusPage === status.FINISH && data.length !== 0 && queryURL !== '' && (
+        <List data={data} isHome={false} />
+      )}
+      {statusPage === status.LOADING && <ListSkeleton />} {/* Скелетон надо сделать */}
       {statusPage === status.EROR && <p className={s.title}>Erorr</p>}
       {/* (data.length === 0) & (queryURL !== '')  */}
     </Section>

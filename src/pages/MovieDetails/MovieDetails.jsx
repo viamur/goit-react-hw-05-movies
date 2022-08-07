@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Link, NavLink, Outlet, useLocation, useParams } from 'react-router-dom';
 import Section from '../../components/Section/Section';
+import MovieDetailsSkeleton from './MovieDetailsSkeleton';
 import status from '../../utils/status';
 import api from '../../utils/api';
 import s from './MovieDetails.module.css';
-import { useRef } from 'react';
+import DetailsMovie from 'components/DetailsMovie/DetailsMovie';
 
 const MovieDetails = () => {
   const [data, setData] = useState({});
@@ -13,7 +14,6 @@ const MovieDetails = () => {
   const { movieId } = useParams();
   const locRef = useRef(null);
   const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     locRef.current = location.state?.from ?? '/';
@@ -55,22 +55,7 @@ const MovieDetails = () => {
           <Link to={locRef.current} className={s.btnBack}>
             {`<--Go to back`}
           </Link>
-          <div className={s.wrap}>
-            <img src={data.img} alt={data.title} height="300" width="200" className={s.img} />
-            <div className={s.info}>
-              <h2 className={s.title}>
-                {data.title}
-                <span className={s.year}>({data.year})</span>
-              </h2>
-              <p className={s.score}>
-                User Score: <b>{data.score}%</b>{' '}
-              </p>
-              <h3 className={s.subtitle}>Overview</h3>
-              <p>{data.overview}</p>
-              <h3 className={s.subtitle}>Genres</h3>
-              <p>{data.genres}</p>
-            </div>
-          </div>
+          <DetailsMovie data={data} />
           <div>
             <h3 className={s.subtitleAdd}>Additional information</h3>
             <ul className={s.list}>
@@ -89,7 +74,7 @@ const MovieDetails = () => {
           <Outlet />
         </>
       )}
-      {statusPage === status.LOADING && <p>Loading...</p>}
+      {statusPage === status.LOADING && <MovieDetailsSkeleton />}
       {statusPage === status.EROR && <p>Eror</p>}
     </Section>
   );

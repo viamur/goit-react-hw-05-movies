@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import s from './List.module.css';
+import PropTypes from 'prop-types';
 
 const List = ({ data, isHome }) => {
   const location = useLocation();
@@ -19,3 +20,8 @@ const List = ({ data, isHome }) => {
 };
 
 export default List;
+
+List.propTypes = {
+  data: PropTypes.array.isRequired,
+  isHome: PropTypes.bool,
+};

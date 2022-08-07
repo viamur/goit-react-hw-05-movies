@@ -1,13 +1,8 @@
 import { useState } from 'react';
 import api from '../../utils/api';
 import s from './FormSearch.module.css';
-
-const status = {
-  LOADING: 'loading',
-  START: 'start',
-  FINISH: 'finish',
-  EROR: 'eror',
-};
+import status from '../../utils/status';
+import PropTypes from 'prop-types';
 
 const FormSearch = ({ setStatusPage, setData, setSearchParams }) => {
   const [query, setQuery] = useState('');
@@ -50,3 +45,9 @@ const FormSearch = ({ setStatusPage, setData, setSearchParams }) => {
 };
 
 export default FormSearch;
+
+FormSearch.propTypes = {
+  setStatusPage: PropTypes.func,
+  setData: PropTypes.func,
+  setSearchParams: PropTypes.func,
+};

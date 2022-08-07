@@ -1,3 +1,4 @@
+import ListSkeleton from 'components/List/ListSkeleton';
 import { Suspense } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import s from './SharedLayout.module.css';
@@ -15,7 +16,7 @@ const SharedLayout = () => {
           </NavLink>
         </nav>
       </header>
-      <Suspense fallback={<p>Loading Suspense...</p>}>
+      <Suspense fallback={<ListSkeleton />}>
         <Outlet />
       </Suspense>
     </>
