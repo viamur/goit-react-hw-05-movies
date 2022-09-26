@@ -1,102 +1,21 @@
-**Read in other languages: [Русский](README.md), [Polska](README.pl.md).**
-
-# React homework template
-
-Этот проект был создан при помощи
-[Create React App](https://github.com/facebook/create-react-app). Для знакомства
-и настройки дополнительных возможностей
-[обратись к документации](https://facebook.github.io/create-react-app/docs/getting-started).
-
-## Подготовка нового проекта
-
-1. Убедись что на компьютере установлена LTS-версия Node.js.
-   [Скачай и установи](https://nodejs.org/en/) её если необходимо.
-2. Склонируй этот репозиторий.
-3. Измени имя папки с `react-homework-template` на имя своего проекта.
-4. Создай новый пустой репозиторий на GitHub.
-5. Открой проект в VSCode, запусти терминал и свяжи проект с GitHub-репозиторием
-   [по инструкции](https://docs.github.com/en/get-started/getting-started-with-git/managing-remote-repositories#changing-a-remote-repositorys-url).
-6. Установи базовые зависимости проекта командой `npm install`.
-7. Запусти режим разработки, выполнив команду `npm start`.
-8. Перейди в браузере по адресу [http://localhost:3000](http://localhost:3000).
-   Эта страница будет автоматически перезагружаться после сохранения изменений в
-   файлах проекта.
-
-## Деплой
-
-Для настройки деплоя проекта необходимо выполнить несколько дополнительных шагов
-по настройке твоего репозитория. Зайди во вкладку `Settings` и в подсекции
-`Actions` выбери выбери пункт `General`.
-
-![GitHub actions settings](./assets/actions-config-step-1.png)
-
-Пролистай страницу до последней секции, в которой выбери опции как на следующем
-изображении и нажми `Save`. Без этих настроек у сборки будет недостаточно прав
-для автоматизации процесса деплоя.
-
-![GitHub actions settings](./assets/actions-config-step-2.png)
-
-Продакшн версия проекта будет автоматически проходить линтинг, собираться и
-деплоиться на GitHub Pages, в ветку `gh-pages`, каждый раз когда обновляется
-ветка `main`. Например, после прямого пуша или принятого пул-реквеста. Для этого
-необходимо в файле `package.json` отредактировать поле `homepage`, заменив
-`your_username` и `your_repo_name` на свои, и отправить изменения на GitHub.
-
-```json
-"homepage": "https://your_username.github.io/your_repo_name/"
-```
-
-Далее необходимо зайти в настройки GitHub-репозитория (`Settings` > `Pages`) и
-выставить раздачу продакшн версии файлов из папки `/root` ветки `gh-pages`, если
-это небыло сделано автоматически.
-
-![GitHub Pages settings](./assets/repo-settings.png)
-
-### Статус деплоя
-
-Статус деплоя крайнего коммита отображается иконкой возле его идентификатора.
-
-- **Желтый цвет** - выполняется сборка и деплой проекта.
-- **Зеленый цвет** - деплой завершился успешно.
-- **Красный цвет** - во время линтинга, сборки или деплоя произошла ошибка.
-
-Более детальную информацию о статусе можно посмотреть кликнув по иконке, и в
-выпадающем окне перейти по ссылке `Details`.
-
-![Deployment status](./assets/status.png)
-
-### Живая страница
-
-Через какое-то время, обычно пару минут, живую страницу можно будет посмотреть
-по адресу указанному в отредактированном свойстве `homepage`. Например, вот
-ссылка на живую версию для этого репозитория
-[https://goitacademy.github.io/react-homework-template](https://goitacademy.github.io/react-homework-template).
-
-Если открывается пустая страница, убедись что во вкладке `Console` нет ошибок
-связанных с неправильными путями к CSS и JS файлам проекта (**404**). Скорее
-всего у тебя неправильное значение свойства `homepage` в файле `package.json`.
-
-### Маршрутизация
-
-Если приложение использует библиотеку `react-router-dom` для маршрутизации,
-необходимо дополнительно настроить компонент `<BrowserRouter>`, передав в пропе
-`basename` точное название твоего репозитория. Слеши в начале и конце строки
-обязательны.
-
-```jsx
-<BrowserRouter basename="/your_repo_name/">
-  <App />
-</BrowserRouter>
-```
-
-## Как это работает
-
-![How it works](./assets/how-it-works.png)
-
-1. После каждого пуша в ветку `main` GitHub-репозитория, запускается специальный
-   скрипт (GitHub Action) из файла `.github/workflows/deploy.yml`.
-2. Все файлы репозитория копируются на сервер, где проект инициализируется и
-   проходит линтинг и сборку перед деплоем.
-3. Если все шаги прошли успешно, собранная продакшн версия файлов проекта
-   отправляется в ветку `gh-pages`. В противном случае, в логе выполнения
-   скрипта будет указано в чем проблема.
+<article><div class="theme-doc-markdown markdown"><header><h1>Критерии приема</h1></header><p>Используй этот <a href="https://github.com/goitacademy/react-homework-template#readme" target="_blank" rel="noopener noreferrer">шаблон React-проекта</a> как стартовую точку своего приложения.</p><ul><li>Создан репозиторий <code>goit-react-hw-05-movies</code></li><li>При сдаче домашней работы есть ссылки: на исходные файлы и рабочие страницы
+каждого проекта на <code>GitHub Pages</code></li><li>В состоянии компонентов хранится минимально необходимый набор данных,
+остальное вычисляется</li><li>При запуске кода задания, в консоли нету ошибок и предупреждений</li><li>Для каждого компонента есть отдельная папка с файлом React-компонента и файлом
+стилей</li><li>Для компонентов описаны <code>propTypes</code></li><li>Все что компонент ожидает в виде пропов, передается ему при вызове</li><li>Имена компонентов понятные, описательные</li><li>JS-код чистый и понятный, используется <code>Prettier</code></li><li>Стилизация выполнена <code>CSS-модулями</code> или <code>Styled Components</code>.</li></ul><h2 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="кинопоиск">Кинопоиск<a class="hash-link" href="#кинопоиск" title="Direct link to heading">​</a></h2><p>Создай базовую маршрутизацию для приложения поиска и хранения фильмов. Превью
+рабочего приложения
+<a href="https://drive.google.com/file/d/1vR0hi3n1236Q5Bg4-se-8JVKD9UKSfId/view?usp=sharing" target="_blank" rel="noopener noreferrer">смотри по ссылке</a>.</p><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="api-themoviedborg">API themoviedb.org<a class="hash-link" href="#api-themoviedborg" title="Direct link to heading">​</a></h3><p>Для бекенда используй <a href="https://www.themoviedb.org/" target="_blank" rel="noopener noreferrer">themoviedb.org API</a>.
+Необходимо зарегистриваться (можно ввести произвольные данные) и получить
+API-ключ. В этой работе будут использоваться следующие ендпоинты.</p><ul><li><a href="https://developers.themoviedb.org/3/trending/get-trending" target="_blank" rel="noopener noreferrer">/trending/get-trending</a>
+список самых популярных фильмов на сегодня для создания коллекции на главной
+странице.</li><li><a href="https://developers.themoviedb.org/3/search/search-movies" target="_blank" rel="noopener noreferrer">/search/search-movies</a>
+поиск кинофильма по ключевому слову на странице фильмов.</li><li><a href="https://developers.themoviedb.org/3/movies/get-movie-details" target="_blank" rel="noopener noreferrer">/movies/get-movie-details</a>
+запрос полной информации о фильме для страницы кинофильма.</li><li><a href="https://developers.themoviedb.org/3/movies/get-movie-credits" target="_blank" rel="noopener noreferrer">/movies/get-movie-credits</a>
+запрос информации о актёрском составе для страницы кинофильма.</li><li><a href="https://developers.themoviedb.org/3/movies/get-movie-reviews" target="_blank" rel="noopener noreferrer">/movies/get-movie-reviews</a>
+запрос обзоров для страницы кинофильма.</li></ul><p><a href="https://developers.themoviedb.org/3/getting-started/introduction" target="_blank" rel="noopener noreferrer">Ссылка на документацию</a></p><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="маршруты">Маршруты<a class="hash-link" href="#маршруты" title="Direct link to heading">​</a></h3><p>В приложении должны быть следующие маршруты. Если пользователь зашел по
+несуществующему маршруту, его необходимо перенаправлять на домашнюю страницу.</p><ul><li><code>&#x27;/&#x27;</code> - компонент <code>Home</code>, домашняя страница со списком популярных
+кинофильмов.</li><li><code>&#x27;/movies&#x27;</code> - компонент <code>Movies</code>, страница поиска фильмов по ключевому
+слову.</li><li><code>&#x27;/movies/:movieId&#x27;</code> - компонент <code>MovieDetails</code>, страница с детальной
+информацией о кинофильме.</li><li><code>/movies/:movieId/cast</code> - компонент <code>Cast</code>, информация о актерском составе.
+Рендерится на странице <code>MovieDetails</code>.</li><li><code>/movies/:movieId/reviews</code> - компонент <code>Reviews</code>, информация об обзорах.
+Рендерится на странице <code>MovieDetails</code>.</li></ul><h3 class="anchor anchorWithHideOnScrollNavbar_WYt5" id="code-splitting-разделение-кода">Code Splitting (разделение кода)<a class="hash-link" href="#code-splitting-разделение-кода" title="Direct link to heading">​</a></h3><p>Добавь асинхронную загрузку JS-кода для маршрутов приложения используя
+<code>React.lazy()</code> и <code>Suspense</code>.</p></div></article>
